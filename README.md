@@ -7,4 +7,4 @@ KELAS : IF-7<br>
 + Pattern MVP<br>
 + Splashscreen<br>
 + Viewpager<br>
-+ SQLite<br>
++ CRUD Menggunakan SQLite<br>
