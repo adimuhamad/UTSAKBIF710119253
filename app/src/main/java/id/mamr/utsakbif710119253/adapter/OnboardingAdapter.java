@@ -61,3 +61,7 @@ public class OnboardingAdapter extends RecyclerView.Adapter<OnboardingAdapter.On
         }
     }
 }
+
+// NIM : 10119253
+// NAMA : Mochamad Adi Maulia Rahman
+// KELAS : IF-7

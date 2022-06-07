@@ -17,3 +17,7 @@ public class HomeViewModel extends ViewModel {
         return mText;
     }
 }
+
+// NIM : 10119253
+// NAMA : Mochamad Adi Maulia Rahman
+// KELAS : IF-7

@@ -17,3 +17,7 @@ public class CustomOnItemClickListener implements View.OnClickListener {
         void onItemClicked(View view, int position);
     }
 }
+
+// NIM : 10119253
+// NAMA : Mochamad Adi Maulia Rahman
+// KELAS : IF-7

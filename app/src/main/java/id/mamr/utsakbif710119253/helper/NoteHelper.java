@@ -100,3 +100,7 @@ public class NoteHelper {
         return database.delete(TABLE_NOTE, _ID + " = '"+id+"'", null);
     }
 }
+
+// NIM : 10119253
+// NAMA : Mochamad Adi Maulia Rahman
+// KELAS : IF-7

@@ -148,3 +148,7 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
 }
+
+// NIM : 10119253
+// NAMA : Mochamad Adi Maulia Rahman
+// KELAS : IF-7

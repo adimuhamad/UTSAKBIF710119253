@@ -30,3 +30,7 @@ public class AboutFragment extends Fragment {
         binding = null;
     }
 }
+
+// NIM : 10119253
+// NAMA : Mochamad Adi Maulia Rahman
+// KELAS : IF-7
