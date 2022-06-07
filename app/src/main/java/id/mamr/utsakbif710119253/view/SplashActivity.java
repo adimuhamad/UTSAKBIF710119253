@@ -1,14 +1,15 @@
 package id.mamr.utsakbif710119253.view;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import id.mamr.utsakbif710119253.R;
 
 @SuppressLint("CustomSplashScreen")
-public class SplashActivity extends Activity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

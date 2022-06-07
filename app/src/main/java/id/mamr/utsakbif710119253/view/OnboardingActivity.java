@@ -1,17 +1,20 @@
 package id.mamr.utsakbif710119253.view;
 
-import android.os.Bundle;
-import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager2.widget.ViewPager2;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.google.android.material.button.MaterialButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +22,6 @@ import id.mamr.utsakbif710119253.BuildConfig;
 import id.mamr.utsakbif710119253.R;
 import id.mamr.utsakbif710119253.adapter.OnboardingAdapter;
 import id.mamr.utsakbif710119253.model.OnboardingItem;
-import id.mamr.utsakbif710119253.ui.home.HomeFragment;
 
 public class OnboardingActivity extends AppCompatActivity {
 

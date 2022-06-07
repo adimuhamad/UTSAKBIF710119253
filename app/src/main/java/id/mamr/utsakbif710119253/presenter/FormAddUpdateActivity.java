@@ -1,9 +1,8 @@
 package id.mamr.utsakbif710119253.presenter;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -12,13 +11,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import id.mamr.utsakbif710119253.helper.NoteHelper;
-import id.mamr.utsakbif710119253.model.Note;
-import id.mamr.utsakbif710119253.R;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import id.mamr.utsakbif710119253.R;
+import id.mamr.utsakbif710119253.helper.NoteHelper;
+import id.mamr.utsakbif710119253.model.Note;
 
 public class FormAddUpdateActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -44,9 +46,9 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_add_update);
 
-        edtTitle = (EditText)findViewById(R.id.edt_title);
-        edtDescription = (EditText)findViewById(R.id.edt_description);
-        btnSubmit = (Button)findViewById(R.id.btn_submit);
+        edtTitle = findViewById(R.id.edt_title);
+        edtDescription = findViewById(R.id.edt_description);
+        btnSubmit = findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
 
         noteHelper = new NoteHelper(this);
@@ -59,8 +61,8 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
             isEdit = true;
         }
 
-        String actionBarTitle = null;
-        String btnTitle = null;
+        String actionBarTitle;
+        String btnTitle;
 
         if (isEdit){
             actionBarTitle = "Ubah";
@@ -119,14 +121,13 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
 
                     intent.putExtra(EXTRA_POSITION, position);
                     setResult(RESULT_UPDATE, intent);
-                    finish();
                 }else{
                     newNote.setDate(getCurrentDate());
                     noteHelper.insert(newNote);
 
                     setResult(RESULT_ADD);
-                    finish();
                 }
+                finish();
             }
         }
     }
@@ -139,6 +140,7 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -167,7 +169,7 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
      */
     private void showAlertDialog(int type){
         final boolean isDialogClose = type == ALERT_DIALOG_CLOSE;
-        String dialogTitle = null, dialogMessage = null;
+        String dialogTitle, dialogMessage;
 
         if (isDialogClose){
             dialogTitle = "Batal";
@@ -185,15 +187,13 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
-                        if (isDialogClose){
-                            finish();
-                        }else{
+                        if (!isDialogClose) {
                             noteHelper.delete(note.getId());
                             Intent intent = new Intent();
                             intent.putExtra(EXTRA_POSITION, position);
                             setResult(RESULT_DELETE, intent);
-                            finish();
                         }
+                        finish();
                     }
                 })
                 .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
@@ -207,7 +207,7 @@ public class FormAddUpdateActivity extends AppCompatActivity implements View.OnC
     }
 
     private String getCurrentDate(){
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
 
         return dateFormat.format(date);

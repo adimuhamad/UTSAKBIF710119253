@@ -15,7 +15,7 @@ import id.mamr.utsakbif710119253.R;
 
 public class OnboardingAdapter extends RecyclerView.Adapter<OnboardingAdapter.OnboardingViewHolder> {
 
-    private List<OnboardingItem> onboardingItems;
+    private final List<OnboardingItem> onboardingItems;
 
     public OnboardingAdapter(List<OnboardingItem> onboardingItems) {
         this.onboardingItems = onboardingItems;
@@ -41,11 +41,11 @@ public class OnboardingAdapter extends RecyclerView.Adapter<OnboardingAdapter.On
         return onboardingItems.size();
     }
 
-    class OnboardingViewHolder extends RecyclerView.ViewHolder {
+    static class OnboardingViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textJudulOnboarding;
-        private TextView textDeskripsiOnboarding;
-        private ImageView imageOnboarding;
+        private final TextView textJudulOnboarding;
+        private final TextView textDeskripsiOnboarding;
+        private final ImageView imageOnboarding;
 
         OnboardingViewHolder(@NonNull View itemView) {
             super(itemView);
